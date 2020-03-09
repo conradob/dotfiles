@@ -28,19 +28,9 @@ set splitright
 set cursorline
 set relativenumber
 set number
+set showtabline=2
+set laststatus=2
 let g:indentLine_char = '┊'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tmuxline#enabled = 0
-let g:airline_powerline_fonts = 1
-let g:airline_theme='oceanicnext'
-
-set hidden
-set nobackup
-set nowritebackup
-set cmdheight=2
-set updatetime=300
-set shortmess+=c
-set signcolumn=yes
 
 " theme
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -103,9 +93,6 @@ nmap <leader>tT :-tabm<CR>
 
 " access system clipboard
 set clipboard=unnamedplus
-
-" show the status line all the time
-set laststatus=2
 
 " move code blocks easier
 vnoremap < <gv
@@ -253,7 +240,7 @@ nmap [g <Plug>(coc-git-prevchunk)
 nmap ]g <Plug>(coc-git-nextchunk)
 " show chunk diff at current position
 nmap gs <Plug>(coc-git-chunkinfo)
-nmap gu <Plug>(coc-git-chunkundo)
+nmap gu <Plug>(coc-git-chunkUndo)
 " stage chunk at the current position
 nmap <silent> gS :CocCommand git.chunkStage<cr>
 " show commit contains current position
@@ -265,3 +252,65 @@ omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
 
 nnoremap <silent> <space>g  :<C-u>CocList --normal gstatus<CR>
+
+function! LightlineGitBlame() abort
+  let blame = get(b:, 'coc_git_blame', '')
+  " return blame
+  return winwidth(0) > 120 ? blame : ''
+endfunction    \ }
+
+function! LightlineFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+function! LightlineFileformat()
+  return winwidth(0) > 70 ? (WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
+
+let g:lightline = {
+      \ 'colorscheme': 'nord',
+      \ 'mode_map': {
+      \   'n' : 'N',
+      \   'i' : 'I',
+      \   'R' : 'R',
+      \   'v' : 'V',
+      \   'V' : 'VL',
+      \   "\<C-v>": 'VB',
+      \   'c' : 'C',
+      \   's' : 'S',
+      \   'S' : 'SL',
+      \   "\<C-s>": 'SB',
+      \   't': 'T',
+      \ },
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+      \   'right': [
+      \     ['percent', 'lineinfo'],
+      \     ['cocstatus', 'filetype', 'fileformat'],
+      \   ]
+      \ },
+      \ 'component': {
+      \   'lineinfo': ' %3l:%-2v%<',
+      \   'percent': '☰ %3p%%',
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead',
+      \   'blame': 'LightlineGitBlame',
+      \   'filetype': 'LightlineFiletype',
+      \   'fileformat': 'LightlineFileformat',
+      \   'cocstatus': 'coc#status',
+      \ },
+      \ 'separator': {
+      \   'left': '',
+      \   'right': ''
+      \ },
+      \ 'subseparator': {
+      \   'left': '',
+      \   'right': ''
+  \ }
+\ }
+let g:lightline.tabline                = {'left': [['buffers']], 'right': [[]]}
+let g:lightline.component_expand       = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type         = {'buffers': 'tabsel'}
+let g:lightline#bufferline#show_number = 1
