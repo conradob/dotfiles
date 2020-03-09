@@ -2,6 +2,8 @@ source ~/.config/nvim/plugins.vim
 
 autocmd BufNewFile,BufRead *.ts,*.tsx,*.js,*.jsx set filetype=typescript.tsx
 
+let mapleader = ','
+
 " Searching
 set path+=**
 set wildignore+=**/node_modules/**
@@ -161,7 +163,10 @@ let g:indentLine_noConcealCursor=1
 let g:vim_markdown_folding_disabled=1
 
 " formater
-autocmd BufWritePre *.ts,*.tsx,*.js,*.jsx call CocAction('runCommand', 'prettier.formatFile')
+let g:prettier#autoformat = 0
+if filereadable(findfile('.prettierrc', '.;'))
+  autocmd BufWritePre *.ts,*.tsx,*.js,*.jsx call CocAction('runCommand', 'prettier.formatFile')
+endif
 nmap <leader>Pd :autocmd! BufWritePre<CR>
 nmap <leader>Pe :autocmd BufWritePre *.ts,*.tsx,*.js,*.jsx call CocAction('runCommand', 'prettier.formatFile')<CR>
 
@@ -173,7 +178,6 @@ let g:coc_global_extensions = [
 \ 'coc-git',
 \ 'coc-highlight',
 \ 'coc-html',
-\ 'coc-jira-complete',
 \ 'coc-json',
 \ 'coc-lists',
 \ 'coc-marketplace',
@@ -249,6 +253,7 @@ nmap [g <Plug>(coc-git-prevchunk)
 nmap ]g <Plug>(coc-git-nextchunk)
 " show chunk diff at current position
 nmap gs <Plug>(coc-git-chunkinfo)
+nmap gu <Plug>(coc-git-chunkundo)
 " stage chunk at the current position
 nmap <silent> gS :CocCommand git.chunkStage<cr>
 " show commit contains current position
