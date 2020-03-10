@@ -10,7 +10,6 @@ esac
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-HISTCONTROL=ignoreboth
 HISTCONTROL=ignoredups:erasedups  
 
 # append to the history file, don't overwrite it
@@ -47,14 +46,14 @@ esac
 #force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
-   if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-   # We have color support; assume it's compliant with Ecma-48
-   # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-   # a case would tend to support setf rather than setaf.)
-   color_prompt=yes
-   else
-   color_prompt=
-   fi
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
 fi
 
 function parse_git_dirty {
@@ -116,11 +115,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# set up command aliases
-if [[ -f ~/.aliases ]]; then
-    source ~/.aliases
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -132,6 +126,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
+if [ -d ~/.asdf ]; then
+    . $HOME/.asdf/asdf.sh
+    . $HOME/.asdf/completions/asdf.bash
+fi
+
+source /home/gibbon/.config/broot/launcher/bash/br
 ## Added by Master Password
 source bashlib
 mpw() {
@@ -158,27 +158,5 @@ mpw() {
 }
 export MPW_FULLNAME=" "
 
-# Codi
-# Usage: codi [filetype] [filename]
-codi() {
-  local syntax="${1:-javascript}"
-  shift
-  vim -c \
-    "let g:startify_disable_at_vimenter = 1 |\
-    let g:indentLine_enabled = 0 |\
-    let g:indentLine_leadingSpaceEnabled= 0 |\
-    set bt=nofile ls=0 noru nonu nornu |\
-    hi ColorColumn ctermbg=NONE |\
-    hi VertSplit ctermbg=NONE |\
-    hi NonText ctermfg=0 |\
-    Codi $syntax" "$@"
-}
-
-if [ -d ~/.asdf ]; then
-    . $HOME/.asdf/asdf.sh
-    . $HOME/.asdf/completions/asdf.bash
-fi
-
 # After each command, append to the history file and reread it
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a"
-
