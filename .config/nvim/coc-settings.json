@@ -1,5 +1,4 @@
 {
-    "git.addGBlameToBufferVar": true,
     "typescript.format.placeOpenBraceOnNewLineForFunctions": true,
     "javascript.format.placeOpenBraceOnNewLineForFunctions": true,
     "typescript.preferences.importModuleSpecifier": "relative",
@@ -12,13 +11,6 @@
     "yaml.trace.server": "verbose",
     "yaml.schemas": {
         "kubernetes": "/*.yaml"
-    },
-    "languageserver": {
-    "terraform": {
-          "command": "terraform-lsp",
-          "filetypes": ["terraform"],
-          "initializationOptions": {}
-        }
     },
     "cSpell.userWords": [
       "Emel",
