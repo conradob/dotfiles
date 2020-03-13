@@ -131,7 +131,6 @@ if [ -d ~/.asdf ]; then
     . $HOME/.asdf/completions/asdf.bash
 fi
 
-source /home/gibbon/.config/broot/launcher/bash/br
 ## Added by Master Password
 source bashlib
 mpw() {
