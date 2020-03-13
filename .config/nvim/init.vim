@@ -134,6 +134,7 @@ let g:startify_session_before_save = [
 
 " fzf
 nnoremap <c-p> :GFiles<cr>
+nnoremap <c-P> :Buffers<cr>
 
 " comenter
 let g:NERDSpaceDelims = 1
