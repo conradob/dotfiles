@@ -49,6 +49,8 @@ let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:airline_theme='oceanicnext'
 let g:airline_section_c = '%t'
+let g:airline_left_sep = "\uE0C6"
+let g:airline_right_sep = "\uE0C7"
 
 " syntax
 let g:polyglot_disabled = ['typescript']
