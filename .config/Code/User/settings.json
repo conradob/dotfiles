@@ -1,9 +1,25 @@
 {
+    "telemetry.enableTelemetry": false,
+    "explorer.autoReveal": false,
+    "workbench.colorTheme": "Apprentice Bright",
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.fontFamily": "SauceCodePro Nerd Font Mono",
+    "editor.fontFamily": "'SauceCodePro Nerd Font Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.formatOnSave": true,
     "editor.renderIndentGuides": true,
     "editor.lineNumbers": "relative",
-    "keyboard.dispatch": "keyCode",
+    "editor.minimap.maxColumn": 80,
+    "editor.cursorWidth": 80,
     "editor.wordWrap": "on",
+    "editor.codeLens": false,
+    "editor.renderWhitespace": "boundary",
+    "editor.cursorStyle": "line-thin",
+    "editor.cursorBlinking": "solid",
+    "editor.suggestSelection": "first",
+    "editor.tokenColorCustomizations": {
+        "functions": "#d7d787"
+    },
+    "keyboard.dispatch": "keyCode",
     "prettier.jsxSingleQuote": true,
     "prettier.singleQuote": true,
     "prettier.tabWidth": 4,
@@ -11,34 +27,6 @@
     "[typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "window.zoomLevel": 0,
-    "editor.minimap.maxColumn": 80,
-    "editor.cursorWidth": 80,
-    "vim.highlightedyank.enable": true,
-    "workbench.colorCustomizations": {
-        "statusBar.background": "#005f5f",
-        "statusBar.noFolderBackground": "#005f5f",
-        "statusBar.debuggingBackground": "#005f5f"
-    },
-    "terminal.integrated.fontFamily": "SauceCodePro Nerd Font Mono",
-    "terminal.integrated.fontSize": 12,
-    "editor.codeLens": false,
-    "editor.renderWhitespace": "boundary",
-    "editor.fontFamily": "'SauceCodePro Nerd Font Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-    "editor.cursorStyle": "line-thin",
-    "editor.cursorBlinking": "solid",
-    "vim.enableNeovim": true,
-    "vim.easymotion": true,
-    "vim.mouseSelectionGoesIntoVisualMode": false,
-    "vim.neovimPath": "/usr/bin/nvim",
-    "vim.useSystemClipboard": true,
-    "vim.vimrc.path": "/home/conrado/.config/nvim/init.vim",
-    "vim.vimrc.enable": true,
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "explorer.autoReveal": false,
-    "workbench.colorTheme": "Apprentice Bright",
-    "editor.tokenColorCustomizations": {
-        "functions": "#d7d787"
-    }
+    "vscode-neovim.neovimInitPath": " ~/.config/nvim/init.vim",
+    "vscode-neovim.neovimPath": "/usr/local/bin/nvim"
 }
