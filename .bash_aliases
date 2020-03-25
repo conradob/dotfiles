@@ -28,10 +28,12 @@ alias vi="NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim"
 # alias vim="NVIM_TUI_ENABLE_TRUE_COLOR=1 NODE_PATH=. nvim"
 
 # docker
-alias dps="docker ps --format \"{{.ID}}: {{.Names}} {{.Ports}}\""
-alias drs="docker rm `docker ps --no-trunc -aq`"
-alias dri="docker rmi $(docker images --format \"{{.ID}}\")"
-alias dc="docker-compose"
+if [[ $(systemctl is-active docker) == 'active' ]]; then
+    alias dps="docker ps --format \"{{.ID}}: {{.Names}} {{.Ports}}\""
+    alias drs="docker rm `docker ps --no-trunc -aq`"
+    alias dri="docker rmi $(docker images --format \"{{.ID}}\")"
+    alias dc="docker-compose"
+fi
 
 # tmux
 alias tmux='tmux -2' # give -2 flag to tmux so it runs with 256 colors
