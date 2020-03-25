@@ -39,8 +39,17 @@ set signcolumn=yes
 " theme
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 syntax on
-colorscheme apprentice
 set termguicolors
+function! MyHighlights() abort
+    hi Function ctermbg=NONE ctermfg=187 cterm=NONE guibg=NONE guifg=#d7d787 gui=NONE
+    hi MatchParen ctermbg=187 ctermfg=234 cterm=NONE guibg=#d7d787 guifg=#1c1c1c gui=NONE
+endfunction
+
+augroup MyColors
+    autocmd!
+    autocmd ColorScheme * call MyHighlights()
+augroup END
+colorscheme apprentice
 
 " airline
 let g:indentLine_char = '┊'
@@ -53,7 +62,7 @@ let g:airline_left_sep = "\uE0C6"
 let g:airline_right_sep = "\uE0C7"
 
 " syntax
-let g:polyglot_disabled = ['typescript']
+" let g:polyglot_disabled = ['typescript']
 
 " window zoom
 noremap Zz <c-w>_ \| <c-w>\|
@@ -148,7 +157,7 @@ let g:startify_session_before_save = [
 
 " fzf
 nnoremap <c-p> :GFiles<cr>
-nnoremap <c-P> :Buffers<cr>
+" nnoremap <c-P> :Buffers<cr>
 
 " comenter
 let g:NERDSpaceDelims = 1
@@ -267,4 +276,3 @@ omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
 
 nnoremap <silent> <space>g  :<C-u>CocList --normal gstatus<CR>
-
