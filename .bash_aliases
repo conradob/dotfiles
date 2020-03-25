@@ -41,7 +41,7 @@ alias tvs='tmux a -t vscode'
 alias tnvs='tmux new -s vscode'
 
 # config files
-alias vicfg='vi ~/.config/nvim/init.vim ~/.config/nvim/plugins.vim'
+alias vicfg='vi ~/.config/nvim/init.vim ~/.config/nvim/plugins-cfg.vim ~/.config/nvim/plugins.vim'
 alias alcfg='vi ~/.bash_aliases ~/.bash_plugins/git.plugin.sh ~/.bashrc ~/.profile'
 alias sbash='source ~/.bashrc'
 

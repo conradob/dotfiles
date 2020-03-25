@@ -12,7 +12,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'metakirby5/codi.vim'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'chrisbra/Recover.vim'
 Plug 'vim-airline/vim-airline'
@@ -24,7 +23,7 @@ Plug 'mhartington/oceanic-next'
 Plug 'flazz/vim-colorschemes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'jeffkreeftmeijer/vim-numbertoggle', { 'on': [] }
 Plug 'Yggdroot/indentLine'
 Plug 'elzr/vim-json'
 
