@@ -42,7 +42,7 @@ syntax on
 set termguicolors
 function! MyHighlights() abort
     hi Function ctermbg=NONE ctermfg=187 cterm=NONE guibg=NONE guifg=#d7d787 gui=NONE
-    hi MatchParen ctermbg=187 ctermfg=234 cterm=NONE guibg=#d7d787 guifg=#1c1c1c gui=NONE
+    hi MatchParen ctermbg=234 ctermfg=187 cterm=NONE guibg=#1c1c1c guifg=#d7d787 gui=NONE
 endfunction
 
 augroup MyColors
