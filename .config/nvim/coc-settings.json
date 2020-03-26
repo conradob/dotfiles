@@ -12,6 +12,18 @@
     "yaml.schemas": {
         "kubernetes": "/*.yaml"
     },
+    "diagnostic.enableHighlightLineNumber": false,
+    "diagnostic.errorSign": "✘",
+    "diagnostic.warningSign": "",
+    "diagnostic.infoSign": "",
+    "git.addedSign.text": "",
+    "git.removedSign.text": "",
+    "git.changedSign.text": "",
+    "git.changeRemovedSign.text": "",
+    "git.addedSign.hlGroup": "GitAddedSign",
+    "git.removedSign.hlGroup": "GitRemovedSign",
+    "git.changedSign.hlGroup": "GitChangedSign",
+    "git.changeRemovedSign.hlGroup": "GitChangedSign",
     "cSpell.userWords": [
       "Emel",
       "autorenew",

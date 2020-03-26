@@ -7,6 +7,13 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 syntax on
 set termguicolors
 function! MyHighlights() abort
+    hi CocErrorSign ctermfg=Red guibg=#1c1c1c guifg=#ff0000
+    hi CocWarningSign ctermfg=Brown guibg=#1c1c1c guifg=#ff922b
+    hi CocInfoSign ctermfg=Yellow guibg=#1c1c1c guifg=#fab005
+    hi CocHintSign ctermfg=Blue guibg=#1c1c1c guifg=#15aabf
+    hi GitAddedSign guibg=#1c1c1c guifg=#87AF87
+    hi GitRemovedSign guibg=#1c1c1c guifg=#ff4040
+    hi GitChangedSign guibg=#1c1c1c guifg=#a132f0
     hi Function ctermbg=NONE ctermfg=187 cterm=NONE guibg=NONE guifg=#d7d787 gui=NONE
     hi MatchParen ctermbg=234 ctermfg=187 cterm=NONE guibg=#1c1c1c guifg=#d7d787 gui=NONE
 endfunction
