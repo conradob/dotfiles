@@ -16,6 +16,8 @@ function! MyHighlights() abort
     hi GitChangedSign guibg=#1c1c1c guifg=#a132f0
     hi Function ctermbg=NONE ctermfg=187 cterm=NONE guibg=NONE guifg=#d7d787 gui=NONE
     hi MatchParen ctermbg=234 ctermfg=187 cterm=NONE guibg=#1c1c1c guifg=#d7d787 gui=NONE
+    hi link jsxPunct Normal
+
 endfunction
 
 augroup MyColors
