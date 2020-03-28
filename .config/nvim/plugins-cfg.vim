@@ -1,7 +1,5 @@
 call plug#load('vim-numbertoggle')
 
-autocmd BufNewFile,BufRead *.ts,*.tsx,*.js,*.jsx set filetype=typescript.tsx
-
 " theme
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 syntax on
@@ -17,7 +15,8 @@ function! MyHighlights() abort
     hi Function ctermbg=NONE ctermfg=187 cterm=NONE guibg=NONE guifg=#d7d787 gui=NONE
     hi MatchParen ctermbg=234 ctermfg=187 cterm=NONE guibg=#1c1c1c guifg=#d7d787 gui=NONE
     hi link jsxPunct Normal
-
+    hi link jsxBraces Normal
+    hi link jsxTag Normal
 endfunction
 
 augroup MyColors
