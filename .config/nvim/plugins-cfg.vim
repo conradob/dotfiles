@@ -7,6 +7,7 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 syntax on
 set termguicolors
 function! MyHighlights() abort
+    hi Pmenu ctermbg=238 ctermfg=250 cterm=NONE guibg=#1c1c1c guifg=#bcbcbc gui=NONE
     hi CocErrorSign ctermfg=Red guibg=#1c1c1c guifg=#ff0000
     hi CocWarningSign ctermfg=Brown guibg=#1c1c1c guifg=#ff922b
     hi CocInfoSign ctermfg=Yellow guibg=#1c1c1c guifg=#fab005
