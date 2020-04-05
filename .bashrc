@@ -159,3 +159,5 @@ export MPW_FULLNAME=" "
 
 # After each command, append to the history file and reread it
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a"
+
+if [ "$TMUX" = "" ]; then tbase || tnbase; fi
