@@ -207,6 +207,8 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <expr><C-f> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
+nnoremap <expr><C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
 xmap <leader>a <Plug>(coc-codeaction-selected)
 xmap <leader>f <Plug>(coc-format-selected)
 vmap <leader>f  <Plug>(coc-format-selected)
