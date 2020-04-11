@@ -36,4 +36,7 @@ Plug 'sheerun/vim-polyglot'
 " c#
 Plug 'omnisharp/omnisharp-vim'
 
+" tools
+Plug 'vimwiki/vimwiki'
+
 call plug#end()

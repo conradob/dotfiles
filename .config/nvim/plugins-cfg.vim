@@ -2,6 +2,7 @@ call plug#load('vim-numbertoggle')
 
 " theme
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+filetype plugin on
 syntax on
 set termguicolors
 function! MyHighlights() abort
@@ -15,6 +16,12 @@ function! MyHighlights() abort
     hi GitChangedSign guibg=#1c1c1c guifg=#a132f0
     hi Function ctermbg=NONE ctermfg=187 cterm=NONE guibg=NONE guifg=#d7d787 gui=NONE
     hi MatchParen ctermbg=234 ctermfg=187 cterm=NONE guibg=#1c1c1c guifg=#d7d787 gui=NONE
+    hi VimwikiHeader1 guifg=#FF8700
+    hi VimwikiHeader2 guifg=#C66800
+    hi VimwikiHeader3 guifg=#9B5200
+    hi VimwikiHeader4 guifg=#794000
+    hi VimwikiHeader5 guifg=#794000
+    hi VimwikiHeader6 guifg=#794000
     hi link jsxPunct Normal
     hi link jsxBraces Normal
     hi link jsxTag Normal
@@ -233,3 +240,7 @@ omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
 
 nnoremap <silent> <space>g  :<C-u>CocList --normal gstatus<CR>
+
+" Vimwiki
+let g:vimwiki_list = [{'path': '~/Documents/Wiki/',
+    \ 'syntax': 'markdown', 'ext': '.md'}]

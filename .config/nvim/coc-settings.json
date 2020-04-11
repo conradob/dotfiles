@@ -27,9 +27,11 @@
     "git.changeRemovedSign.hlGroup": "GitChangedSign",
     "cSpell.userWords": [
       "Emel",
+      "ORBITDB",
       "autorenew",
       "focusbc",
       "gcloud",
+      "ipfs",
       "kcubectl",
       "kubectl",
       "mapify",
