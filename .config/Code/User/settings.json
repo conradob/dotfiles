@@ -28,5 +28,6 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "vscode-neovim.neovimInitPath": " ~/.config/nvim/init.vim",
-    "vscode-neovim.neovimPath": "/usr/local/bin/nvim"
+    "vscode-neovim.neovimPath": "/usr/local/bin/nvim",
+    "window.zoomLevel": 1
 }

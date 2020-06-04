@@ -22,6 +22,7 @@ function! MyHighlights() abort
     hi VimwikiHeader4 guifg=#794000
     hi VimwikiHeader5 guifg=#794000
     hi VimwikiHeader6 guifg=#794000
+    hi CocCodeLens guifg=#74b49b
     hi link jsxPunct Normal
     hi link jsxBraces Normal
     hi link jsxTag Normal
@@ -34,7 +35,6 @@ augroup END
 colorscheme apprentice
 
 " airline
-let g:indentLine_char = '┊'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_powerline_fonts = 1
@@ -42,9 +42,6 @@ let g:airline_theme='oceanicnext'
 let g:airline_section_c = '%t'
 let g:airline_left_sep = "\uE0C6"
 let g:airline_right_sep = "\uE0C7"
-
-" syntax
-" let g:polyglot_disabled = ['typescript']
 
 " window zoom
 noremap Zz <c-w>_ \| <c-w>\|
@@ -93,10 +90,7 @@ nmap <silent> <leader>2 :NERDTreeFind<CR>
 " toggle invisible characters
 set invlist
 set list
-set listchars=tab:¦\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
-
-" disable mouse
-set mouse=""
+set listchars=tab:¦\ ,trail:·,extends:❯,precedes:❮
 
 " startify
 nmap <leader>s :Startify<CR>
@@ -126,11 +120,12 @@ let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 
 " identline
+let g:indentLine_char = '┊'
 let g:indentLine_leadingSpaceEnabled='1'
-let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'startify', 'tagbar', 'vimfiler', 'markdown', 'minimap']
-let g:indentLine_bufTypeExclude = ['help', 'nerdtree', 'startify', 'tagbar', 'vimfiler', 'markdown', 'minimap']
-let g:indentLine_bufNameExclude = ['help', 'NERD_tree.*', 'startify', 'tagbar', 'vimfiler', 'markdown', 'minimap']
-let g:indentLine_leadingSpaceChar='·'
+let g:indentLine_fileTypeExclude = ['help', 'nerdtree', 'startify', 'tagbar', 'vimfiler', 'markdown', 'minimap', 'vimwiki']
+let g:indentLine_bufTypeExclude = ['help', 'nerdtree', 'startify', 'tagbar', 'vimfiler', 'markdown', 'minimap', 'vimwiki']
+let g:indentLine_bufNameExclude = ['help', 'NERD_tree.*', 'startify', 'tagbar', 'vimfiler', 'markdown', 'minimap', 'vimwiki']
+let g:indentLine_leadingSpaceChar='⋅'
 let g:indentLine_noConcealCursor=1
 
 let g:vim_markdown_folding_disabled=1
@@ -146,20 +141,22 @@ nmap <leader>Pe :autocmd BufWritePre *.ts,*.tsx,*.js,*.jsx call CocAction('runCo
 " coc
 let g:coc_snippet_next = '<tab>'
 let g:coc_global_extensions = [
+\ 'coc-cspell-dicts',
 \ 'coc-css',
 \ 'coc-eslint',
 \ 'coc-git',
 \ 'coc-highlight',
 \ 'coc-html',
+\ 'coc-jest',
 \ 'coc-json',
 \ 'coc-lists',
 \ 'coc-marketplace',
 \ 'coc-omnisharp',
 \ 'coc-prettier',
 \ 'coc-snippets',
-\ 'coc-sql',
+\ 'coc-solargraph',
 \ 'coc-spell-checker',
-\ 'coc-cspell-dicts',
+\ 'coc-sql',
 \ 'coc-todolist',
 \ 'coc-tslint-plugin',
 \ 'coc-tsserver',
@@ -192,8 +189,6 @@ autocmd CursorHold * silent     call        CocActionAsync('highlight')
 autocmd User CocJumpPlaceholder call        CocActionAsync('showSignatureHelp')
 command! -nargs=0 Prettier      :CocCommand prettier.formatFile
 command! -nargs=0 Format        :call       CocAction('format')
-command! -nargs=0 Jest          :call       CocAction('runCommand', 'jest.projectTest')
-command! -nargs=0 JestCurrent   :call       CocAction('runCommand', 'jest.fileTest', ['%'])
 command! -nargs=0 OR            :call       CocAction('runCommand', 'editor.action.organizeImport')
 command! -nargs=0 SIG           :call       CocActionAsync('showSignatureHelp')
 command! -nargs=? Fold          :call       CocAction('fold', <f-args>)
@@ -218,9 +213,15 @@ nnoremap <expr><C-f> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
 nnoremap <expr><C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
 xmap <leader>a <Plug>(coc-codeaction-selected)
 xmap <leader>f <Plug>(coc-format-selected)
-vmap <leader>f  <Plug>(coc-format-selected)
+vmap <leader>f <Plug>(coc-format-selected)
 
 let g:OmniSharp_server_stdio = 1
+
+" coc-jest
+command! -nargs=0 Jest        :call CocAction('runCommand', 'jest.projectTest')
+command! -nargs=0 JestCurrent :call CocAction('runCommand', 'jest.fileTest', ['%'])
+command! JestInit             :call CocAction('runCommand', 'jest.init')
+nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
 
 " coc-git
 " navigate chunks of current buffer
@@ -244,3 +245,16 @@ nnoremap <silent> <space>g  :<C-u>CocList --normal gstatus<CR>
 " Vimwiki
 let g:vimwiki_list = [{'path': '~/Documents/Wiki/',
     \ 'syntax': 'markdown', 'ext': '.md'}]
+
+" fugitive
+nnoremap <leader>gd :Gdiffsplit!<CR>
+nnoremap gdh :diffget //2<CR>
+nnoremap gdl :diffget //3<CR>
+
+" rspec
+map <Leader>rst :call RunCurrentSpecFile()<CR>
+map <Leader>rss :call RunNearestSpec()<CR>
+map <Leader>rsl :call RunLastSpec()<CR>
+map <Leader>rsa :call RunAllSpecs()<CR>
+
+let g:rspec_command = "vertical T bundle exec rspec {spec}"

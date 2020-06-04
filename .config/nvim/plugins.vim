@@ -16,6 +16,8 @@ Plug 'vim-scripts/BufOnly.vim'
 Plug 'chrisbra/Recover.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'kassio/neoterm'
+Plug 'jiangmiao/auto-pairs'
 
 " ui
 Plug 'romainl/apprentice'
@@ -36,7 +38,13 @@ Plug 'sheerun/vim-polyglot'
 " c#
 Plug 'omnisharp/omnisharp-vim'
 
+" ruby and rails
+Plug 'vim-ruby/vim-ruby'
+Plug 'thoughtbot/vim-rspec'
+
 " tools
 Plug 'vimwiki/vimwiki'
+Plug 'tpope/vim-dadbod'
+Plug 'wakatime/vim-wakatime'
 
 call plug#end()

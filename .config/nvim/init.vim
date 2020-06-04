@@ -20,8 +20,8 @@ filetype plugin indent on
 set novb
 set diffopt+=vertical
 set signcolumn=yes
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set noshowmode
 set splitbelow
@@ -36,6 +36,7 @@ set cmdheight=2
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
+set mouse=a
 
 " close all other buffers
 nmap <silent> <leader>bD :BufOnly<CR>
@@ -53,6 +54,8 @@ set backspace=indent,eol,start
 " move code blocks easier
 vnoremap < <gv
 vnoremap > >gv
+
+" autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
 
 if !exists('g:vscode')
     source ~/.config/nvim/plugins-cfg.vim
