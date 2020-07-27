@@ -55,6 +55,10 @@ set backspace=indent,eol,start
 vnoremap < <gv
 vnoremap > >gv
 
+" refresh changed content
+set autoread
+au CursorHold * checktime
+
 " autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
 
 if !exists('g:vscode')

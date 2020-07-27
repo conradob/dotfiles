@@ -31,9 +31,9 @@ Plug 'elzr/vim-json'
 
 " syntax
 Plug 'sheerun/vim-polyglot'
-" Plug 'pangloss/vim-javascript'
-" Plug 'peitalin/vim-jsx-typescript'
-" Plug 'leafgarland/typescript-vim'
+
+" js
+Plug 'xabikos/vscode-javascript'
 
 " c#
 Plug 'omnisharp/omnisharp-vim'
