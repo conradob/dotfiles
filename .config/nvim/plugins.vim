@@ -45,6 +45,6 @@ Plug 'thoughtbot/vim-rspec'
 " tools
 Plug 'vimwiki/vimwiki'
 Plug 'tpope/vim-dadbod'
-Plug 'wakatime/vim-wakatime'
+" Plug 'wakatime/vim-wakatime'
 
 call plug#end()
